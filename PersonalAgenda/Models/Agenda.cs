@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PersonalAgenda.Models
 {
-    class Agenda
+   public class Agenda
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }

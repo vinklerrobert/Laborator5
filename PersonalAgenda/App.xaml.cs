@@ -15,6 +15,8 @@ namespace PersonalAgenda
             get
             {
                 if (database == null)
+
+
                 {
                     database = new
                    AgendaDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.
@@ -27,7 +29,6 @@ namespace PersonalAgenda
         {
             InitializeComponent();
             MainPage = new NavigationPage(new AgendaPage());
-            MainPage = new MainPage();
         }
 
         protected override void OnStart()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonalAgenda.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +17,7 @@ namespace PersonalAgenda
         {
             InitializeComponent();
         }
-    }
-}
+   
 protected override async void OnAppearing()
 {
     base.OnAppearing();
@@ -27,6 +27,7 @@ async void OnNoteAddedClicked(object sender, EventArgs e)
 {
     await Navigation.PushAsync(new NotePage
     {
+
         BindingContext = new Agenda()
     });
 }
@@ -38,5 +39,7 @@ async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             BindingContext = e.SelectedItem as Agenda
         });
+    }
+}
     }
 }
