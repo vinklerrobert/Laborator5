@@ -12,6 +12,8 @@ namespace PersonalAgenda
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NotePage : ContentPage
     {
+
+        bool isCheck = false;
         public NotePage()
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace PersonalAgenda
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             var note = (Agenda)BindingContext;
-            note.Date = DateTime.UtcNow;
+            note.isChecked = isCheck;
             await App.Database.SaveNoteAsync(note);
             await Navigation.PopAsync();
         }
@@ -29,6 +31,11 @@ namespace PersonalAgenda
             var note = (Agenda)BindingContext;
             await App.Database.DeleteNoteAsync(note);
             await Navigation.PopAsync();
+        }
+
+        void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            isCheck = e.Value;
         }
     }
 }

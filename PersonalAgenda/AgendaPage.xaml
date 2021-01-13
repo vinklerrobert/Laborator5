@@ -7,14 +7,26 @@
         <ToolbarItem Text="+"
  Clicked="OnNoteAddedClicked" />
     </ContentPage.ToolbarItems>
-    <ListView x:Name="listView"
+    <StackLayout>
+        <ListView x:Name="listView"
  Margin="20"
  ItemSelected="OnListViewItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding Text}"
- Detail="{Binding Date}" />
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout>
+                            <Label Text="{Binding Text}"/>
+                                <CheckBox IsChecked="{Binding isChecked}"/>
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
+    <Button Text="Clear"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked" />
+    </StackLayout>
 </ContentPage>

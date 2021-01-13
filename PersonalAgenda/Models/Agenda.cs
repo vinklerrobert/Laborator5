@@ -10,6 +10,11 @@ namespace PersonalAgenda.Models
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string Text { get; set; }
-        public DateTime Date { get; set; }
+        public bool isChecked { get; set; }
+
+        public static implicit operator Agenda(bool v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
